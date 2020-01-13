@@ -31,7 +31,7 @@ module.exports = (server) => {
 
         });
 
-        //사용자정의 이벤트(클라이언트에스 reply라는 이벤트명으로 전송)
+        //사용자정의 이벤트(클라이언트에스 reply라는 이벤트명으로)
         socket.on('reply',(data)=>{
             console.log(data);
         });

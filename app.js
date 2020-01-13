@@ -7,6 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+const ColorHash = require('color-hash');
+
 var app = express();
 
 // view engine setup
