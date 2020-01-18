@@ -75,5 +75,17 @@ router.delete('/room/:id',async(req,res,next)=>{
   },1000);
 
 });
+/*
+router.post('/room/:id/chat',async(req,res,next)=>{
+  const chat = {
+    room:req.params.id,
+    user:req.session.color,
+    chat:req.body.chat
+  }
 
+  req.app.get('io').of('/chat').to(req.params.id).emit('chat',chat);
+
+  res.send('ok');
+});
+*/
 module.exports = router;
