@@ -1,33 +1,18 @@
-class Room{
+const rr = new Map();
+/*
+rr.set('n',{no:1,age:20});
+rr.set('b',{no:1,age:20});
 
-
-    constructor(){
-        //this.title = 32;
-    }
-
-    setTitle(t){
-        this.title = t;
-    }
-
-    getTitle(){
-        return this.title;
-
-    }
-
-
-
+const result = rr.values();
+const ret = [];
+for ( amount of rr.values()) {
+    ret.push(amount);
+console.log('result : ',amount);
 }
-
-const r = new Room();
-const re = r.getTitle();
-console.log('re : ',re);
-if(re === undefined){
-    console.log('undefined!!');
-
-}
-r.setTitle('34');
-const reb = r.getTitle();
-console.log('re : ',reb);
+*/
+rr.set('n','baw');
+console.log('rvvv : ',rr.has('n'));
 
 
-
+rr.delete('n');
+console.log('rvvv : ',rr.has('n'));

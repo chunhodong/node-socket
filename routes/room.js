@@ -2,20 +2,39 @@ class Room{
 
 
     constructor(){
-     this.rooms = [];   
+        this.rooms = new Map();
     }
 
+    getRoom(id){
+        return this.rooms.get(id);
+    }
+
+
     getRooms(){
-        return this.rooms;
+        const result = [];
+        for(let room of this.rooms.values()){
+            result.push(room);
+        }
+        return result;
+
     }
 
     addRoom(room){
-        this.rooms.push(room);
+        let roomId;
+        
+        while(true){
+            roomId = Math.floor(Math.random() * 1000000) + 1;
+            if(this.rooms.has(roomId) == false)break;    
+        }
+        room.id = roomId;
+        this.rooms.set(roomId,room);
+        return roomId;
 
     }
 
-    addRoom(title,max,owner,password){
-        this.rooms.push({title,max,owner,password});
+    removeRoom(id){
+        this.rooms.delete(id);
+
     }
 
 }
