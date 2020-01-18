@@ -75,7 +75,7 @@ router.delete('/room/:id',async(req,res,next)=>{
   },1000);
 
 });
-/*
+
 router.post('/room/:id/chat',async(req,res,next)=>{
   const chat = {
     room:req.params.id,
@@ -87,5 +87,5 @@ router.post('/room/:id/chat',async(req,res,next)=>{
 
   res.send('ok');
 });
-*/
+
 module.exports = router;
