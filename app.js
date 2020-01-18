@@ -1,7 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
 const session = require('express-session');
-const webSocket = require('./socket-io-room');
 
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -15,7 +14,7 @@ const ColorHash = require('color-hash');
 const sessionMiddleware = session({
   resave:false,
   saveUninitialized:false,
-  secret:process.env.COOKIE_SECRET,
+  secret:'mysecret',
   cookie:{
     httpOnly:true,
     secure:false,
@@ -27,6 +26,7 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+app.set('sessionMiddleware',sessionMiddleware);
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
