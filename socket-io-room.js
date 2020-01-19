@@ -41,11 +41,9 @@ module.exports = (server,app,sessionMiddleware) => {
             console.log('chat namespace 접속해제');
             socket.leave(roomId);
 
-            console.log('leave roomid@@ : ',roomId);
 
             //참여중인 소켓정보
             const currentRoom = socket.adapter.rooms[roomId];
-            console.log('currentRoo@@ : ',currentRoom);
 
             const userCount = currentRoom ? currentRoom.length : 0;
             if(userCount === 0){

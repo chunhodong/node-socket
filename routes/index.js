@@ -5,7 +5,6 @@ const room = require('./room');
 //방목록
 router.get('/', function(req, res, next) {
   const rooms = room.getRooms();
-  console.log('rooms : ',rooms);
   res.render('main', { rooms,title:'GIF채팅방'});
 });
 
@@ -31,7 +30,6 @@ router.post('/room',async (req,res,next)=>{
   }
   
   const roomId = room.addRoom(newRoom);
-  console.log('new Room@@ : ',newRoom);
   io.of('/room').emit('newRoom',newRoom);
 
   res.redirect(`/room/${roomId}?password=${req.body.password}`);
@@ -44,14 +42,11 @@ router.get('/room/:id', function(req, res, next) {
   
   //id로 방찾기
 
-console.log(typeof Number(req.params.id));
 
   
   const result = room.getRoom(Number(req.params.id));
 
-  console.log('room result : ',result);
   if(!result){
-    console.log('존재하지 않는 방입니다.');
     return res.redirect('/');
   }
   

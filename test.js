@@ -1,18 +1,44 @@
-const rr = new Map();
-/*
-rr.set('n',{no:1,age:20});
-rr.set('b',{no:1,age:20});
+class Room{
 
-const result = rr.values();
-const ret = [];
-for ( amount of rr.values()) {
-    ret.push(amount);
-console.log('result : ',amount);
+
+    constructor(){
+        this.rooms = new Map();
+    }
+
+    getRoom(id){
+        return this.rooms.get(id);
+    }
+
+
+    getRooms(){
+        const result = [];
+        for(let room of this.rooms.values()){
+            result.push(room);
+        }
+        return result;
+
+    }
+
+    addRoom(room){
+        let roomId;
+        
+        while(true){
+            roomId = Math.floor(Math.random() * 1000000) + 1;
+            if(this.rooms.has(roomId) == false)break;    
+        }
+        room.id = roomId;
+        this.rooms.set(roomId,room);
+        return roomId;
+
+    }
+
+    removeRoom(id){
+        this.rooms.delete(id);
+
+    }
+
 }
-*/
-rr.set('n','baw');
-console.log('rvvv : ',rr.has('n'));
-
-
-rr.delete('n');
-console.log('rvvv : ',rr.has('n'));
+const faw = new Room();
+Object.freeze(faw);
+faw.bing = 3;
+console.log('bing : ',faw.bing);
